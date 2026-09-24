@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 300px;
+    padding: 24px;
+    background: #050505;
+    border: 1px solid #3b3b40;
+    border-radius: 34px;
+}
+
+.display {
+    min-height: 174px;
+    padding: 22px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+    text-align: right;
+}
+
+#previous-display {
+    min-height: 30px;
+    overflow: hidden;
+    color: #8e8e93;
+    font-size: 20px;
+    word-break: break-all;
+}
+
+#current-display {
+    overflow: hidden;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1;
+    word-break: break-all;
+}
+
+.button {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    min-width: 0;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    font: inherit;
+    font-size: 24px;
+    font-weight: 400;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.95);
+    filter: brightness(1.3);
+}
+
+button.number,
+button.decimal {
+    background: #2c2c2e;
+}
+
+
+button.function {
+    background: #636366;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+}
+
+button.operator {
+    background: #ff9f0a;
+}
+
+button.operator.active {
+    background: #fff;
+    color: #ff9f0a;
+}
+
+button.equals {
+    background: #ff9f0a;
+    grid-column: span 2;
+    aspect-ratio: unset;
+    border-radius: 100px;
+}
+
+@media (max-width: 360px) {
+    .calculator {
+        padding: 18px;
+        border-radius: 28px;
+    }
+
+    button {
+        font-size: 24px;
+    }
+
+    button.function {
+        font-size: 16px;
+    }
+
+    #current-display {
+        font-size: 36px;
+    }
+
+    #previous-display {
+        font-size: 18px;
+    }
+}
